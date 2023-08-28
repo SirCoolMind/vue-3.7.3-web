@@ -13,7 +13,6 @@
     "get-value": "^3.0.1",
     "moment": "^2.29.4",
     "numeral": "^2.0.6",
-    "prettier": "^3.0.2",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
