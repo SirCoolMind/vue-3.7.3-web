@@ -19,9 +19,7 @@
           </select>
         </div>
         <div class="mb-3">
-          <button type="button" @click="saveData" class="btn btn-primary">
-            Save
-          </button>
+          <button type="button" @click="saveData" class="btn btn-primary">Save</button>
         </div>
       </div>
     </div>
@@ -79,9 +77,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.error-message {
-  color: red;
-}
-</style>

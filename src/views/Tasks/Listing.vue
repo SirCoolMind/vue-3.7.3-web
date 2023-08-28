@@ -27,12 +27,7 @@
               <td>{{ task.is_completed }}</td>
               <td>{{ task.created_at }}</td>
               <td>
-                <RouterLink
-                  :to="{ path: '/tasks/' + task.id + '/edit' }"
-                  class="btn btn-info"
-                >
-                  Edit
-                </RouterLink>
+                <RouterLink :to="{ path: '/tasks/' + task.id + '/edit' }" class="btn btn-info"> Edit </RouterLink>
                 <button type="button" class="btn btn-danger">Delete</button>
               </td>
             </tr>
