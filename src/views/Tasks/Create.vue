@@ -59,18 +59,23 @@ export default {
     },
 
     saveData() {
+
+      this.errorMessages = {};
       axios
         .post("http://laravel-10-api.test/api/v1/tasks", this.record)
         .then((res) => {
           console.log(res.data);
-          alert(res.data.message);
+          alert(getValue(res, "data.message"));
 
-          this.record = {
-            name: "",
-            is_completed: false,
-          };
+          this.recordId = getValue(res, 'data.data.id');
+          this.$router.replace({
+            name: "tasks-edit",
+            params: { recordId: this.recordId }
+          });
+
         })
         .catch((err) => {
+          console.log(err);
           this.errorMessages = getValue(err, "response.data.errors");
         });
     },
