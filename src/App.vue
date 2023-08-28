@@ -27,6 +27,7 @@ import HelloWorld from "./components/HelloWorld.vue";
   </nav>
 
   <RouterView />
+  <DialogsWrapper />
 </template>
 
 <style scoped>
