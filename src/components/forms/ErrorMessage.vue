@@ -11,10 +11,8 @@ export default {
   },
   computed: {
     hasError() {
-      return (
-        this.errorMessages.hasOwnProperty(this.field) &&
-        this.errorMessages[this.field].length > 0
-      );
+      const fieldErrors = this.errorMessages[this.field];
+      return fieldErrors && fieldErrors.length > 0;
     },
     errorMessage() {
       return this.errorMessages[this.field];
