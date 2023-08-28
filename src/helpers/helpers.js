@@ -1,8 +1,8 @@
 /**
  * Helpers Functions
  */
-import moment from 'moment';
-import get from 'get-value';
+import moment from "moment";
+import get from "get-value";
 import numeral from "numeral";
 
 /**
@@ -16,58 +16,58 @@ export function getValue(resource, key) {
  * Date helper
  */
 export function getTheDate(timestamp, format) {
-	let time = timestamp * 1000;
-	let formatDate = format ? format : 'MM-DD-YYYY';
-	return moment(time).format(formatDate);
+  let time = timestamp * 1000;
+  let formatDate = format ? format : "MM-DD-YYYY";
+  return moment(time).format(formatDate);
 }
 
 export function getDateFromISO(isoDate, format) {
   if (!isoDate) {
-    return '';
+    return "";
   }
 
-  let formatDate = format ? format : 'YYYY-MM-DD';
-  return isoDate ? moment(isoDate).format(formatDate) : '';
+  let formatDate = format ? format : "YYYY-MM-DD";
+  return isoDate ? moment(isoDate).format(formatDate) : "";
 }
 
 export function getTimeFromISO(isoDate, format) {
   if (!isoDate) {
-    return '';
+    return "";
   }
 
-  let formatDate = format ? format : 'HH:mm';
-  return isoDate ? moment(isoDate).format(formatDate) : '';
+  let formatDate = format ? format : "HH:mm";
+  return isoDate ? moment(isoDate).format(formatDate) : "";
 }
 
 export function getDateTimeFromISO(isoDate, format) {
   if (!isoDate) {
-    return '';
+    return "";
   }
 
-  let formatDate = format ? format : 'YYYY-MM-DD h:mm A';
-  return isoDate ? moment(isoDate).format(formatDate) : '';
+  let formatDate = format ? format : "YYYY-MM-DD h:mm A";
+  return isoDate ? moment(isoDate).format(formatDate) : "";
 }
 
 export function getDateFromUnixTime(unixDate, format) {
   if (!unixDate) {
-    return '';
+    return "";
   }
 
-  let formatDate = format ? format : 'YYYY-MM-DD';
+  let formatDate = format ? format : "YYYY-MM-DD";
   return moment.unix(unixDate).format(formatDate);
 }
 
 export function convertDateToTimeStamp(date, format) {
-	let formatDate = format ? format : 'YYYY-MM-DD';
-	return moment(date, formatDate).unix();
+  let formatDate = format ? format : "YYYY-MM-DD";
+  return moment(date, formatDate).unix();
 }
 
 export function convertDateToISO(date, format) {
   if (!date) {
-    return '';
+    return "";
   }
 
-  let formatDate = format ? format : 'YYYY-MM-DD';
+  let formatDate = format ? format : "YYYY-MM-DD";
   return moment(date, formatDate).format("YYYY-MM-DD[T]HH:mm:ssZ");
 }
 
@@ -75,7 +75,7 @@ export function convertDateToISO(date, format) {
  * Number helper
  */
 export function formatNumber(value, format) {
-  return numeral(value, format || '0,0.00');
+  return numeral(value, format || "0,0.00");
 }
 
 export function removeFormatNumber(value) {
@@ -87,17 +87,17 @@ export function removeFormatNumber(value) {
  */
 export function formatAddress(address) {
   let arr = [];
-  arr.push(getValue(address, 'address1'));
-  arr.push(getValue(address, 'address2'));
-  arr.push(getValue(address, 'address3'));
+  arr.push(getValue(address, "address1"));
+  arr.push(getValue(address, "address2"));
+  arr.push(getValue(address, "address3"));
 
   let postcodeCityState = [];
-  postcodeCityState.push(getValue(address, 'postcode'));
-  postcodeCityState.push(getValue(address, 'city'));
-  postcodeCityState.push(getValue(address, 'state'));
-  arr.push(postcodeCityState.filter(val => val).join(', '));
+  postcodeCityState.push(getValue(address, "postcode"));
+  postcodeCityState.push(getValue(address, "city"));
+  postcodeCityState.push(getValue(address, "state"));
+  arr.push(postcodeCityState.filter((val) => val).join(", "));
 
-  return arr.filter(val => val).join('<br>');
+  return arr.filter((val) => val).join("<br>");
 }
 
 /**
@@ -116,7 +116,7 @@ export function parseJson(value, defaultValue) {
   } else {
     try {
       result = JSON.parse(value);
-    } catch(e) {
+    } catch (e) {
       result = defaultValue;
     }
   }
@@ -160,9 +160,9 @@ export function hexToRgbA(hex, alpha) {
  * Function to return currenr app layout
  */
 export function getCurrentAppLayout(router) {
-	let location = router.history.current.fullPath;
-	let path = location.split("/")
-	return path[1];
+  let location = router.history.current.fullPath;
+  let path = location.split("/");
+  return path[1];
 }
 
 export function getInnerScrollHeight(router) {
@@ -203,4 +203,3 @@ export function getOuterScrollHeight(router) {
       return "height:calc(100vh - 220px)";
   }
 }
-

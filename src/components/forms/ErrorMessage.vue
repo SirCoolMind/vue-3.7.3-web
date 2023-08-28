@@ -1,28 +1,30 @@
 <!-- ErrorMessage.vue -->
 <template>
-    <p v-if="hasError" class="error-message">{{ errorMessage }}</p>
+  <p v-if="hasError" class="error-message">{{ errorMessage }}</p>
 </template>
 
 <script>
 export default {
-props: {
+  props: {
     field: String,
     errorMessages: Object,
-},
-computed: {
+  },
+  computed: {
     hasError() {
-    return this.errorMessages.hasOwnProperty(this.field) && this.errorMessages[this.field].length > 0;
+      return (
+        this.errorMessages.hasOwnProperty(this.field) &&
+        this.errorMessages[this.field].length > 0
+      );
     },
     errorMessage() {
-    return this.errorMessages[this.field];
+      return this.errorMessages[this.field];
     },
-},
+  },
 };
 </script>
 
 <style>
 .error-message {
-    color: red;
+  color: red;
 }
 </style>
-  
