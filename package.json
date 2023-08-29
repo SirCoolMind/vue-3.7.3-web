@@ -12,6 +12,7 @@
     "bootstrap": "^5.3.1",
     "editorconfig": "^2.0.0",
     "get-value": "^3.0.1",
+    "js-cookie": "^3.0.5",
     "moment": "^2.29.4",
     "numeral": "^2.0.6",
     "vue": "^3.3.4",
