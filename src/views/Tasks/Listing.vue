@@ -63,6 +63,8 @@ export default {
   },
   mounted() {
     this.getTasks();
+    console.log("env below")
+
     // console.log("i am here in mounted");
   },
   methods: {
